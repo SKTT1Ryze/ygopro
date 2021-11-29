@@ -14,7 +14,7 @@ project "ygopro"
             "single_duel.cpp", "single_duel.h",
             "tag_duel.cpp", "tag_duel.h" }
     includedirs { "../ocgcore" }
-    links { "ocgcore", "clzma", "lua", "sqlite", "event"}
+    links { "ocgcore", "clzma", "lua",  "event" }
 
     if BUILD_EVENT then
     	includedirs { "../event/include" }
@@ -22,6 +22,9 @@ project "ygopro"
 
     if BUILD_SQLITE then
         includedirs { "../sqlite" }
+        links { "sqlite" }
+    else
+        links { "sqlite3" }
     end
 
     filter "system:windows"
