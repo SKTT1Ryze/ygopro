@@ -5,7 +5,7 @@
 /build
 /event
 /lua
-/sqlite3
+/sqlite
 /replay
 /deck
 /.vscode
