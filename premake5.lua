@@ -86,8 +86,10 @@ elseif GetParam("no-build-event") then
     BUILD_EVENT = false
 end
 if not BUILD_EVENT then
-    EVENT_INCLUDE_DIR = GetParam("event-include-dir") or "/usr/local/include/event2"
-    EVENT_LIB_DIR = GetParam("event-lib-dir") or "/usr/local/lib"
+    -- EVENT_INCLUDE_DIR = GetParam("event-include-dir") or "/usr/local/include/event2"
+    EVENT_INCLUDE_DIR = "/opt/homebrew/include/event2" and "/opt/homebrew/include"
+    -- EVENT_LIB_DIR = GetParam("event-lib-dir") or "/usr/local/lib"
+    EVENT_LIB_DIR = "/opt/homebrew/lib"
 end
 
 if GetParam("build-freetype") then
@@ -188,7 +190,8 @@ end
         end
 
     filter "system:macosx"
-        libdirs { "/usr/local/lib" }
+        -- libdirs { "/usr/local/lib" }
+        libdirs { "/opt/homebrew/lib" }
         buildoptions { "-stdlib=libc++" }
         if MAC_ARM then
             buildoptions { "--target=arm64-apple-macos12" }
